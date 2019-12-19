@@ -2327,6 +2327,9 @@
 
 		.box.special {
 			text-align: center;
+
+			overflow-y: hidden;
+			height: 95%;
 		}
 
 		.box .image.featured {
@@ -2371,6 +2374,8 @@
 		position: relative;
 	}
 
+
+
 		.icon:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
@@ -2382,6 +2387,10 @@
 			text-transform: none !important;
 			font-family: 'Font Awesome 5 Free';
 			font-weight: 400;
+		}
+
+		.icon.custom-icon:before {
+			font-weight: 900;
 		}
 
 		.icon > .label {
@@ -2944,7 +2953,7 @@
 	}
 
 		#header h1 {
-			color: inherit;
+			color: #fff;
 			height: inherit;
 			left: 1.25em;
 			line-height: inherit;
@@ -3161,12 +3170,12 @@
 /* Banner */
 
 	#banner {
-		background-attachment: scroll,							fixed;
+		background-attachment: scroll, fixed;
 		background-color: #666;
-		background-image: url("images/overlay.png"), url("../../images/banner.jpg");
-		background-position: top left,						center center;
-		background-repeat: repeat,							no-repeat;
-		background-size: auto,							cover;
+		background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url("../../images/ottawa-bg.jpg");
+		background-position: top left, top center;
+		background-repeat: repeat, no-repeat;
+		background-size: auto, cover;
 		color: #fff;
 		padding: 12em 0 20em 0;
 		text-align: center;
@@ -3223,6 +3232,15 @@
 				background: #fff;
 				color: #666 !important;
 			}
+
+/* biography - user edit */
+.biography > h2 {
+	font-size: 2.25em 
+}
+.biography > p {
+	text-align: justify;
+	text-justify: inter-word;
+}
 
 /* Main */
 
@@ -3303,20 +3321,19 @@
 /* CTA */
 
 	#cta {
-		background: #e89980;
+		background: #e67e22;
 		color: #f9e6df;
 		padding: 3.5em 0 4em 0;
 		text-align: center;
 	}
 
 		#cta h2, #cta h3, #cta h4, #cta h5, #cta h6 {
-			color: inherit;
+			color: #ffffff;
 		}
 
 		#cta form {
 			margin: 0 auto;
-			max-width: 100%;
-			width: 25em;
+			width: 50%;
 		}
 
 		#cta input[type="submit"],

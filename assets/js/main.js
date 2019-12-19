@@ -11,6 +11,8 @@
 		$header = $('#header'),
 		$banner = $('#banner');
 
+	var offsetTop = 50;
+
 	// Breakpoints.
 		breakpoints({
 			wide:      ( '1281px',  '1680px' ),
@@ -80,5 +82,12 @@
 			});
 
 		}
+
+		// scroll to
+		$('a[href*="#"]').on("click", function(e) {
+			e.preventDefault();
+			var target = $(this).attr("href");
+			window.scrollTo({top: $(target)[0].offsetTop - offsetTop, behavior: "smooth"});
+		});
 
 })(jQuery);
