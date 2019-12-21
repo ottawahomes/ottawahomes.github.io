@@ -32,7 +32,8 @@
 
 	// Dropdowns.
 		$('#nav > ul').dropotron({
-			alignment: 'right'
+			alignment: 'center',
+			offsetX: -40
 		});
 
 	// NavPanel.
@@ -66,21 +67,29 @@
 				});
 
 	// Header.
-		if (!browser.mobile
-		&&	$header.hasClass('alt')
-		&&	$banner.length > 0) {
+		//if (!browser.mobile
+		//&&	$header.hasClass('alt')
+		//&&	$banner.length > 0) {
 
-			$window.on('load', function() {
+		//	$window.on('load', function() {
 
-				$banner.scrollex({
-					bottom:		$header.outerHeight(),
-					terminate:	function() { $header.removeClass('alt'); },
-					enter:		function() { $header.addClass('alt reveal'); },
-					leave:		function() { $header.removeClass('alt'); }
-				});
+		//		$banner.scrollex({
+		//			bottom:		$header.outerHeight(),
+		//			terminate:	function() { $header.removeClass('alt'); },
+		//			enter:		function() { $header.addClass('alt reveal'); },
+		//			leave:		function() { $header.removeClass('alt'); }
+		//		});
 
-			});
+		//	});
 
+		//}
+
+		window.onscroll = function() {
+			if (window.scrollY > (0.75 * window.innerHeight)) {
+				this.document.getElementById("header").classList.add("shrunk");
+			} else {
+				this.document.getElementById("header").classList.remove("shrunk");
+			}
 		}
 
 		// scroll to
