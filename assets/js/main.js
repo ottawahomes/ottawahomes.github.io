@@ -4,6 +4,33 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+
+var contentData;
+
+function parseSheet(tsv) {
+
+	var arr = tsv.split("\n").splice(1);
+
+	for (var i = 0; i < arr.length; i++) {
+		arr[i] = arr[i].split("\t");
+	}
+
+	console.log(arr);
+	return arr;
+
+}
+
+function populateContentData(contentData) {
+
+	for (var i = 0; i < contentData.length; i++) {
+
+		document.getElementById(contentData[i][0].substring(1)).innerHTML = contentData[i][1];
+
+	}
+
+}
+
+
 (function($) {
 
 	var	$window = $(window),
@@ -98,5 +125,18 @@
 			var target = $(this).attr("href");
 			window.scrollTo({top: $(target)[0].offsetTop - offsetTop, behavior: "smooth"});
 		});
+
+		// loading data from google sheets
+		$.ajax({
+			type: "get",
+			url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vS4Xl3VGd0NcOrr8-46_NrdcBQzv9__wcHvRKg8g-BQsRPcHjcT4G2YqCJ3gaPARzEoU2BKxct6ECmU/pub?output=tsv",
+			data: null,
+			success: function(response) {
+				contentData = parseSheet(response);
+				populateContentData(contentData);
+			}
+		});
+
+
 
 })(jQuery);
